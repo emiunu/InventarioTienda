@@ -51,7 +51,7 @@ public class inventarioTienda {
     public static void mostrarMenu() {
         System.out.println("Inventario de tienda: ");
         System.out.println("1. Agregar producto.");
-        System.out.println("2. Restar producto.");
+        System.out.println("2. Eliminar producto.");
         System.out.println("3. Disponibilidad de producto.");
         System.out.println("4. Listar productos.");
         System.out.println("5. Salir.");
@@ -89,7 +89,7 @@ public class inventarioTienda {
 
     public static boolean agregarProductos(Object[][] productos, int idProducto, int cantidadAgregar) {
         for (int i = 0; i < productos.length; i++)
-            if ( productos[i][0] != null || productos[i][0].equals(idProducto)) {
+            if ( productos[i][0] != null && productos[i][0].equals(idProducto)) {
                 productos[i][2] = (int) productos[i][2] + cantidadAgregar;
                 return true;
             }
@@ -161,7 +161,7 @@ public class inventarioTienda {
 
     public static boolean eliminarProducto(Object[][] productos, int idProducto, int cantidadEliminar) {
         for (int i = 0; i < productos.length; i++){
-            if (productos[i][0] != null || productos[i][0].equals(idProducto)) {
+            if (productos[i][0] != null && productos[i][0].equals(idProducto)) {
                 int cantidadInicial = (int) productos[i][2];
                 int resta = cantidadInicial - cantidadEliminar;
                 if (resta > 0){
